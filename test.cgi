@@ -16,7 +16,9 @@
 <h1>
   <a href="/">Perlで個人サイト作ろ</a>
 </h1>
-
+<div class="site-description">
+  Perlで個人サイト作りましょ。ブログを使った情報発信、Webサイトでの商品紹介。お問合せフォームもサポート。
+</div>
       </div>
       <div class="main">
         <div class="content">
