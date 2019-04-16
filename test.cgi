@@ -127,7 +127,7 @@
       </div>
       <div class="footer">
         <!-- footer -->
-<a href="https://github.com/yuki-kimoto/giblog">Giblog</a>
+<a href="https://tutorial.perlzemi.com/">制作 Perlゼミ</a>
 
       </div>
     </div>
