@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+
+<title>ブログの記事を追加しよ - Perlで個人サイト作ろ</title>
+<meta name="description" content="ブログの記事を追加してみましょう。ブログで、新しい記事を書きたいときは、次のコマンドを実行します。">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<h1>
+  <a href="/">Perlで個人サイト作ろ</a>
+</h1>
+<div class="site-description">
+  Perlで個人サイト作りましょ。ブログを使った情報発信、Webサイトでの商品紹介。お問合せフォームもサポート。
+</div>
+<div class="site-description">
+レンタルサーバー、ドメイン取得、SSLなどの、サイトの公開方法も学ぼ。
+</div>
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <h2><a href="/blog/20190423082921.html">ブログの記事を追加しよ</a></h2>
+<p>
+  ブログの記事を追加してみましょう。ブログで、新しい記事を書きたいときは、次のコマンドを実行します。
+</p>
+<p>
+  ホームディレクトリに「mysite」という名前で、サイトが作成されていると想定して解説します。
+</p>
+<p>
+  まずcdコマンドを使って、サイトのディレクトリに移動します。
+</p>
+<pre>
+cd ~/mysite
+</pre>
+<p>
+  ディレクトリに移動したら「giblog add」コマンドを使って、ブログの記事を追加します。
+</p>
+<pre>
+giblog add
+</pre>
+<p>
+  すると、次のようなメッセージが表示されます。
+</p>
+<pre>
+Create templates/blog/20190423082921.html
+</pre>
+<p>
+  今日の年月日と時刻が入ったHTMLファイルが作成されます。
+</p>
+<p>
+  このファイルは空なので、テキストエディタで開いて、編集します。
+</p>
+<p>
+  記事のタイトルと簡単な記事を書いてみましょう。
+</p>
+<pre>
+&lt;h2&gt;今日はみかんを食べたぞ&lt;/h2&gt;
+
+今日食べたみかんは、とても甘くおいしかった。
+
+みっつも食べてしまった。
+
+</pre>
+<p>
+  タイトルは「h2」タグの中に書きます。本文は上のように、段落ごとに記述しましょう。
+</p>
+<p>
+  注意点として、先頭に半角空白を入れないようにしましょう。
+</p>
+<p>
+  先頭に半角空白を入れると、自動改行機能が無効になってしまうためです。
+</p>
+<p>
+  記事を追加したら、次のコマンドでサイトを立ち上げて、確認してみましょう。
+</p>
+<pre>
+morbo serve.pl
+</pre>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    メニュー
+  </div>
+  <ul>
+    <li><a href="/blog/20190416153053.html">Windowsで個人ブログを作る</a></li>
+    <li>Macで個人ブログを作る</li>
+    <li>Linuxで個人ブログを作る</li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a href="https://tutorial.perlzemi.com/">制作 Perlゼミ</a>
+
+      </div>
+    </div>
+  </body>
+</html>
