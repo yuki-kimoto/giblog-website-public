@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+
+<title>スタイルシート(CSS)を編集しよ - Perlで個人サイト作ろ</title>
+<meta name="description" content="スタイルシート(CSS)を編集してみましょう。">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<h1>
+  <a href="/">Perlで個人サイト作ろ</a>
+</h1>
+<div class="site-description">
+  Perlで個人サイト作りましょ。ブログを使った情報発信、Webサイトでの商品紹介。お問合せフォームもサポート。
+</div>
+<div class="site-description">
+レンタルサーバー、ドメイン取得、SSLなどの、サイトの公開方法も学ぼ。
+</div>
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <h2><a href="/blog/20190425082227.html">スタイルシート(CSS)を編集しよ</a></h2>
+<p>
+  スタイルシート(CSS)を編集してみましょう。
+</p>
+<p>
+  スタイルシートというのは、Webサイトのデザインを変更するための仕組みで、文字の色や背景の色などを変えたりすることができます。
+</p>
+<p>
+  スタイルシートは、以下のファイルに書かれています。
+</p>
+<pre>
+templates/static/css/common.css
+</pre>
+<p>
+  スタイルシートを編集したい場合は、このファイルを編集してください。
+</p>
+<h2>スタイルシートのサンプル</h2>
+<p>
+  サンプルとして「Perlで個人サイト作ろ」のスタイルシートの中身を公開しておきます。
+</p>
+<pre>
+/* Default settings */
+  
+  /* all */
+	* {
+	  margin:0;
+	  padding:0;
+    box-sizing: border-box;
+    -webkit-text-size-adjust:100%;
+  }
+  a, a:visited {
+    color:#0000EE;
+  }
+  
+  /* header */
+  .header {
+    background:white;
+    margin-bottom:15px;
+    border-bottom:5px solid #3081ff;
+  }
+  
+  /* footer */
+  .footer {
+    background:white;
+    margin-top:15px;
+    text-align:center;
+    padding:15px 0;
+    border-top:1px solid #ccc;
+  }
+  .footer a, .footer a:visited {
+    color:#000;
+  }
+  
+  /* container */
+  .container {
+    background:#f7fffd;
+  }
+  
+  /* main */
+  .main {
+    max-width:960px;
+    width:100%;
+    margin: 0 auto 15px auto;
+  }
+	.main:after {
+		content:"";
+		display:block;
+		clear:both;
+	}
+	
+	/* content */
+	.content {
+    float:left;
+    width:74%;
+	}
+	
+	/* entry */
+  .entry {
+    border:1px solid #C0C0C0;
+    background:white;
+    box-shadow: 0 0 3px rgba(0,0,0,.1);
+    padding:15px 25px;
+    margin-bottom:10px;
+  }
+  .entry li {
+    margin-left:25px;
+    line-height:1.5;
+  }
+  
+  /* side */
+  .side {
+    float:left;
+    width:25%;
+    margin-left:1%;
+  }
+  
+  /* tags */
+  h1 {
+    max-width:960px;
+    width:100%;
+    font-size:30px;
+    padding:12px 10px 10px 13px;
+    margin: 0 auto;
+  }
+  .site-description {
+    max-width:960px;
+    width:100%;
+    margin: 0 auto;
+    padding:0px 15px 15px 15px;
+  }
+  h1 a, h1 a:visited {
+    text-decoration:none;
+    color:#0f213d;
+  }
+  h2 {
+    font-size:23px;
+    padding:10px 0;
+    letter-spacing:0.5px;
+  }
+  h2 a, h2 a:visited {
+    text-decoration:none;
+    color:#000;
+  }
+  h3 {
+    font-size:18px;
+    border-left:7px solid #ffad49;
+    padding:6px 0px 4px 12px;
+    letter-spacing:0.5px;
+    margin:15px 0 10px 0;
+  }
+  h4 {
+    font-size:17px;
+    font-weight:bold;
+    padding:6px 0px 4px 5px;
+    letter-spacing:0.5px;
+    margin:15px 0 10px 0;
+  }
+  p {
+    font-size:16px;
+    color:#111;
+    margin:10px 0;
+    line-height:1.5;
+  }
+  pre {
+    font-size:16px;
+    background:#FCFCFC;
+    border:1px solid #CCCCCC;
+    border-radius:5px;
+    padding:10px 15px;
+    margin:10px 0;
+    line-height:1.5;
+  }
+  blockquote {
+    font-size:16px;
+    background:#FCFCFC;
+    border:1px solid #CCCCCC;
+    border-radius:5px;
+    padding:10px 15px;
+    margin:10px 0;
+    line-height:1.5;
+  }
+  
+  /* advanced */
+  .day {
+    text-align:right;
+    color:#999;
+  }
+  .before-days {
+    text-align:center;
+  }
+  .side-list {
+    box-shadow: 0 0 3px rgba(0,0,0,.1);
+  }
+  .side-list-title {
+    background:#3081ff;
+    color:white;
+    font-weight:bold;
+    padding: 7px 0px 5px 0px;
+    text-align:center;
+    border:1px solid #ccc;
+    border-bottom:none;
+  }
+  .side-list ul {
+    border:1px solid #ccc;
+  }
+  .side-list li {
+    list-style:none;
+    background:white;
+    border-bottom:1px solid #ccc;
+    padding:7px 10px 5px 10px;
+  }
+  .side li:last-child {
+    border-bottom:none;
+  }
+
+/* Tablet and Smart phone */
+@media only screen and (max-width:960px) {
+  .content {
+    float:none;
+    width:97%;
+    margin:0 auto;
+    margin-bottom:15px;
+  }
+  .side {
+    float:none;
+    width:97%;
+    margin:0 auto;
+  }
+}
+</pre>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    メニュー
+  </div>
+  <ul>
+    <li><a href="/blog/20190416153053.html">Windowsで個人ブログを作る</a></li>
+    <li>Macで個人ブログを作る</li>
+    <li>Linuxで個人ブログを作る</li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a href="https://tutorial.perlzemi.com/">制作 Perlゼミ</a>
+
+      </div>
+    </div>
+  </body>
+</html>
