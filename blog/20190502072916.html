@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+
+<title>画像を表示しよ - Perlで個人サイト作ろ</title>
+<meta name="description" content="画像を記事の中に表示してみましょう。わかりやすいイラストが入ると、記事の質がぐっと高まります。">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<h1>
+  <a href="/">Perlで個人サイト作ろ</a>
+</h1>
+<div class="site-description">
+  Perlで個人サイト作りましょ。ブログを使った情報発信、Webサイトでの商品紹介。お問合せフォームもサポート。
+</div>
+<div class="site-description">
+レンタルサーバー、ドメイン取得、SSLなどの、サイトの公開方法も学ぼ。
+</div>
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <h2><a href="/blog/20190502072916.html">画像を表示しよ</a></h2>
+<p>
+  画像を記事の中に表示してみましょう。わかりやすいイラストが入ると、記事の質がぐっと高まります。
+</p>
+<p>
+  画像の例としてLinuxのペンギン君で試してみましょう。
+</p>
+<p>
+  <img src="/images/linux-penguin.png">
+</p>
+<p>
+  上記が表示した例です。
+</p>
+<h3>画像を配置しよ</h3>
+<p>
+  最初に、画像を配置する必要があります。
+</p>
+<p>
+  準備した画像の名前が「linux-penguin.png」だとして、以下のディレクトリの中に、画像を配置しましょう。
+</p>
+<pre>
+templates/static/images
+</pre>
+<p>
+  このディレクトリの中に画像を配置しましょう。
+</p>
+<h3>画像を表示しよ</h3>
+<p>
+  画像の配置が完了したら、画像を表示してみましょう。
+</p>
+<p>
+  記事の中に次の一行を追加しましょう。
+</p>
+<pre>
+&lt;img src="/images/linux-penguin.png"&gt;
+</pre>
+<p>
+  画像が表示されました。
+</p>
+<p>
+  imgタグというのは、画像を表示するためのHTMLの機能です。srcという属性に、画像のパスを指定します。
+</p>
+<h3>FAQ</h3>
+<h4>画像のサイズを指定したい</h4>
+<p>
+  画像のサイズを指定したい場合は、スタイルシートを使用して以下のように書きましょう。
+</p>
+<pre>
+&lt;img src="/images/linux-penguin.png" style="width:400px"&gt;
+</pre>
+<p>
+  <img src="/images/linux-penguin.png" style="width:400px">
+</p>
+<h4>画像のサイズを、スマートフォンとPCの両方で対応したい</h4>
+<p>
+  画像のサイズを、スマートフォンとPCの両方で対応したい場合は、以下のように書きましょう。
+</p>
+<p>
+  スマートフォンの場合は、横画面の98%、パソコンの場合は、400pxで表示されます。
+</p>
+<pre>
+&lt;img src="/images/linux-penguin.png" style="width:98%;max-width:400px;"&gt;
+</pre>
+<p>
+  <img src="/images/linux-penguin.png" style="width:98%;max-width:400px;">
+</p>
+<h4>画像をボーダーで囲みたい</h4>
+<p>
+  画像をボーダーで囲みたい場合は、以下のように書きましょう。
+</p>
+<pre>
+&lt;img src="/images/linux-penguin.png" style="border:1px solid #ddd"&gt;
+</pre>
+<p>
+  <img src="/images/linux-penguin.png" style="border:1px solid #ddd">
+</p>
+<p>
+  1pxの薄い灰色のボーダーで囲まれます。
+</p>
+<h4>画像の配置は、サブディレクトリにしても大丈夫ですか</h4>
+<p>
+  はい。
+</p>
+<pre>
+templates/static/images/foo/bar.png
+</pre>
+<p>
+  のように、サブディレクトリにしても大丈夫です。
+</p>
+<p>
+  画像の指定はは
+</p>
+<pre>
+&lt;img src="/images/foo/bar.png"&gt;
+</pre>
+<p>
+  になります。
+</p>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    メニュー
+  </div>
+  <ul>
+    <li><a href="/blog/20190416153053.html">Windowsで個人ブログを作る</a></li>
+    <li>Macで個人ブログを作る</li>
+    <li>Linuxで個人ブログを作る</li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a href="https://tutorial.perlzemi.com/">制作 Perlゼミ</a>
+
+      </div>
+    </div>
+  </body>
+</html>
