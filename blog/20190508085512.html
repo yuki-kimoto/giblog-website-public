@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+<title>jQueryなどのJavaScriptライブラリを使おう - Perlで個人サイト作ろ</title>
+<meta name="description" content="jQueryやなどのJavaScriptライブラリを配置して使ってみましょう。">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<h1>
+  <a href="/">Perlで個人サイト作ろ</a>
+</h1>
+<div class="site-description">
+  Perlで個人サイト作りましょ。ブログを使った情報発信、Webサイトでの商品紹介。お問合せフォームもサポート。
+</div>
+<div class="site-description">
+レンタルサーバー、ドメイン取得、SSLなどの、サイトの公開方法も学ぼ。
+</div>
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <h2><a href="/blog/20190508085512.html">jQueryなどのJavaScriptライブラリを使おう</a></h2>
+<p>
+  jQueryやなどのJavaScriptライブラリを配置して使ってみましょう。
+</p>
+<p>
+  「Perlで個人サイト作ろ」で作成する静的なCMSでは、JavaScriptが使えます。
+</p>
+<p>
+  ここでは、例としてjQueryを使ってみましょう。
+</p>
+<p>
+  jQueryを、ダウンロードしてきて、配置して利用するという方法をとります。
+</p>
+<blockquote>
+<p>
+  <a href="https://jquery.com/download/">jQuery公式サイト - ダウンロード</a>
+</p>
+</blockquote>
+<p>
+  サイトの上の方にある以下の部分に注目。
+</p>
+<pre>
+Download the compressed, production jQuery 3.4.1
+</pre>
+<p>
+  2019年5月8日のバージョンは、3.4.1です。
+</p>
+<p>
+  このリンクを右クリックして、名前を付けてリンク先を保存してください。
+</p>
+<p>
+  名前は「jquery-3.4.1.min.js」のようにしてください。
+</p>
+<p>
+  JavaScriptを使うと、サイトで動きのある表現を使えるようになります。
+</p>
+<h3>JavaScriptライブラリを配置しよ</h3>
+<p>
+  最初に、JavaScriptライブラリを配置する必要があります。
+</p>
+<p>
+  保存した名前が「jquery-3.4.1.min.js」だとして、以下のディレクトリの中に配置しましょう。
+</p>
+<pre>
+templates/static/js
+</pre>
+<h3>JavaScriptライブラリを読み込もう</h3>
+<p>
+  次にJavaScriptライブラリを読み込む必要があります。JavaScriptライブラリは、使う前に、読み込むことが必要です。
+</p>
+<p>
+  HTMLのheadセクションで読み込むのが推奨です。以下のファイルの中に記述しましょう。
+</p>
+<pre>
+templates/common/meta.html
+</pre>
+<p>
+  ファイルを開いて、次の一行を書き込みます。
+</p>
+<pre>
+&lt;script src="/js/jquery-3.4.1.min.js"&gt;&lt;/script&gt;
+</pre>
+<p>
+  JavaScriptはscriptタグで読み込むことができ、パスをsrc属性に記述します。
+</p>
+<h3>jQueryで「こんにちは」</h3>
+<p>
+  次に、実際にjQueryを使ってみましょう。
+</p>
+<p>
+  ブログの記事やindex.htmlなど、好きなコンテンツを開いてみてください。
+</p>
+<p>
+  この中の一番上に、次のように記述しましょう。
+</p>
+<pre>
+&lt;script&gt;
+  $(function() {
+    alert('こんにちは');
+  });
+&lt;/script&gt;
+</pre>
+<p>
+  これはjQueryの文法で書かれています。
+</p>
+<p>
+  このJavaScriptが書かれたページを開くと、「こんにちは」というメッセージボックスが表示されます。
+</p>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    メニュー
+  </div>
+  <ul>
+    <li><a href="/blog/20190416153053.html">Windowsで個人ブログを作る</a></li>
+    <li>Macで個人ブログを作る</li>
+    <li>Linuxで個人ブログを作る</li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a href="https://tutorial.perlzemi.com/">制作 Perlゼミ</a>
+
+      </div>
+    </div>
+  </body>
+</html>
