@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+<title>サイドバーを非表示・幅変更・左右入れ替えしよ - Perlで個人サイト作ろ</title>
+<meta name="description" content="サイドバーを非表示・幅変更・左右変更しましょう。「Perlで個人サイト作ろ」でブログやWebサイトを作成すると、サイドバーがデフォルトで設定されています。これを変更したい場合にも対応できます。">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<h1>
+  <a href="/">Perlで個人サイト作ろ</a>
+</h1>
+<div class="site-description">
+  Perlで個人サイト作りましょ。ブログを使った情報発信、Webサイトでの商品紹介。お問合せフォームもサポート。
+</div>
+<div class="site-description">
+レンタルサーバー、ドメイン取得、SSLなどの、サイトの公開方法も学ぼ。
+</div>
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <h2><a href="/blog/20190515100430.html">サイドバーを非表示・幅変更・左右入れ替えしよ</a></h2>
+<p>
+  サイドバーを非表示・幅変更・左右変更しましょう。「Perlで個人サイト作ろ」でブログやWebサイトを作成すると、サイドバーがデフォルトで設定されています。これを変更したい場合にも対応できます。
+</p>
+<p>
+  サイドバーのデザインを編集するには、次のCSSを編集します。
+</p>
+<pre>
+templates/static/css/common.css
+</pre>
+<p>
+  最初に、このファイルを開いてください。
+</p>
+<p>
+  コンテントとサイドバーの設定を探してください。デフォルト設定とスマートフォン用の設定の二つのものがあります。
+</p>
+<p>
+  「@media only screen and (max-width:960px)」より上にあるものが、デフォルト設定、下にあるものがスマートフォン用の設定です。
+</p>
+<pre>
+  /* content */
+  .content {
+    /* コンテントエリアの設定 */
+  }
+
+  /* side */
+  .side {
+    /* サイドバーの設定 */
+  }
+
+/* Tablet and Smart phone */
+@media only screen and (max-width:960px) {
+  .content {
+    /* コンテントエリアの設定 - スマートフォン */
+  }
+  .side {
+    /* サイドバーの設定 - スマートフォン */
+  }
+}
+</pre>
+<h3>サイドバーを非表示にする</h3>
+<p>
+  <b>スマートフォンの場合だけ、サイドバーを非表示</b>にしたい場合は、次のように記述してください。
+</p>
+<pre>
+  /* content */
+  .content {
+    /* コンテントエリアの設定 */
+  }
+
+  /* side */
+  .side {
+    /* サイドバーの設定 */
+  }
+
+/* Tablet and Smart phone */
+@media only screen and (max-width:960px) {
+  .content {
+    width:100%;
+  }
+  .side {
+    display:none;
+  }
+}
+</pre>
+<p>
+  <b>PCとスマートフォンの両方でサイドバーを非表示</b>にしたい場合は、次のように記述してください。
+</p>
+<pre>
+  /* content */
+  .content {
+    width:100%;
+  }
+
+  /* side */
+  .side {
+    display:none;
+  }
+
+/* Tablet and Smart phone */
+@media only screen and (max-width:960px) {
+  .content {
+    width:100%;
+  }
+  .side {
+    display:none;
+  }
+}
+</pre>
+<h3>サイドバーの幅を変更する</h3>
+<p>
+  サイドバーの幅を変更するには、以下のように設定します。widthとmargin-leftを変更してください。
+</p>
+<p>
+  メインコンテンツが70%、サイドバーが29%、間のマージンを1%に設定する例です。
+</p>
+<pre>
+  /* content */
+  .content {
+    float:left;
+    width:70%;
+  }
+  
+  /* side */
+  .side {
+    float:left;
+    width:29%;
+    margin-left:1%;
+  }
+</pre>
+<h3>サイドバーの左右を入れ替える</h3>
+<p>
+  サイドバーの左右を入れ替えるには、以下のように設定します。floatの設定をrightに変更し、margin-leftをmargin-rightに変更します。
+</p>
+<pre>
+  /* content */
+  .content {
+    float:right;
+    width:74%;
+  }
+  
+  /* side */
+  .side {
+    float:right;
+    width:25%;
+    margin-right:1%;
+  }
+</pre>
+<h3>参考</h3>
+<p>
+  サイドバーのデザインの変更のために、CSSの基礎について知りたい場合は、以下の記事を参考にしてください。
+</p>
+<p>
+  <a href="/blog/20190509080917.html">個人サイト作成のためのCSSの基礎</a>
+</p>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    メニュー
+  </div>
+  <ul>
+    <li><a href="/blog/20190416153053.html">Windowsで個人ブログを作る</a></li>
+    <li>Macで個人ブログを作る</li>
+    <li>Linuxで個人ブログを作る</li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a href="https://tutorial.perlzemi.com/">制作 Perlゼミ</a>
+
+      </div>
+    </div>
+  </body>
+</html>
