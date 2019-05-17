@@ -21,11 +21,9 @@
   <a href="/">Perlで個人サイト作ろ</a>
 </h1>
 <div class="site-description">
-  Perlで個人サイト作りましょ。ブログを使った情報発信、Webサイトでの商品紹介。お問合せフォームもサポート。
+  個人サイトの作り方を解説。ブログを使った情報発信、Webサイトでの商品紹介。お問合せフォームもサポート。Perlによるカスタマイズ。レンタルサーバー、ドメイン取得、SSLなどの、サイトの公開方法も解説。
 </div>
-<div class="site-description">
-レンタルサーバー、ドメイン取得、SSLなどの、サイトの公開方法も学ぼ。
-</div>
+
       </div>
       <div class="main">
         <div class="content">
