@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+<title>Twitterカードを追加しよ - Perlで個人サイト作ろ</title>
+<meta name="description" content="Twitterカードを追加してみましょう。Twitterカードは、記事へのリンクを張るだけで、Twitter上で、要約を掲載できる機能のことです。">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@perlzemi" />
+<meta name="twitter:title" content="Twitterカードを追加しよ - Perlで個人サイト作ろ" />
+<meta name="twitter:description" content="Twitterカードを追加してみましょう。Twitterカードは、記事へのリンクを張るだけで、Twitter上で、要約を掲載できる機能のことです。" />
+
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<h1>
+  <a href="/">Perlで個人サイト作ろ</a>
+</h1>
+<div class="site-description">
+  個人サイトの作り方を解説。ブログを使った情報発信、Webサイトでの商品紹介。お問合せフォームもサポート。Perlによるカスタマイズ。レンタルサーバー、ドメイン取得、SSLなどの、サイトの公開方法も解説。
+</div>
+
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <h2><a href="/blog/20190520080109.html">Twitterカードを追加しよ</a></h2>
+<p>
+  Twitterカードを追加してみましょう。Twitterカードは、記事へのリンクを張るだけで、Twitter上で、要約を掲載できる機能のことです。
+</p>
+<h3>ビルドスクリプトを開く</h3>
+<p>
+  まず最初に、サイトをビルドしているPerlスクリプトを開きます。
+</p>
+<pre>
+lib/Giblog/Command/build.pm
+</pre>
+<h3>Twitterカード追加のプログラムを追加</h3>
+<p>
+  「Add meta description」と「Build entry html」の間に「Twitter card」のPerlプログラムを追加します。
+</p>
+<pre>
+    # Add meta description
+    $api-&gt;add_meta_description($data);
+    
+    # Twitter card
+    {
+      my $meta = $data-&gt;{meta};
+      
+      my $site_url = $config-&gt;{site_url};
+      my $title = $data-&gt;{title} || '';
+      my $description = $data-&gt;{description} || '';
+      
+      my $twitter_card = &lt;&lt;"EOS";
+&lt;meta name="twitter:card" content="summary" /&gt;
+&lt;meta name="twitter:site" content="\@perlzemi" /&gt;
+&lt;meta name="twitter:title" content="$title" /&gt;
+&lt;meta name="twitter:description" content="$description" /&gt;
+&lt;meta name="twitter:image" content="$site_url/images/perlzemi-twitter-card.png" /&gt;
+EOS
+      
+      $meta .= "\n$twitter_card\n";
+      
+      $data-&gt;{meta} = $meta;
+    }
+    
+    # Build entry html
+    $api-&gt;build_entry($data);
+</pre>
+<p>
+  こんな風にして、直接Perlプログラムを書き込んで、サイトをカスタマイズできます。
+</p>
+<h3>Twitterカードを確認するには</h3>
+<p>
+  Twitterカードが正しく表示されるかを確認するには、Twitterが提供している「Card validator」を使います。
+</p>
+<p>
+  <a href="https://cards-dev.twitter.com/validator">Card validator</a>
+</p>
+<h3>記事の最初の画像を表示するには?</h3>
+<p>
+  スマートフォンサイトでは、記事の最初の画像をTwitter Cardに張ることも一般的ですね。
+</p>
+<p>
+  記事の最初の画像を表示したい場合は、以下のようにします。
+</p>
+<p>
+  「Create description from first p tag」と「Read common templates」の間に、最初の画像を取得するPerlプログラムを追加します。
+</p>
+<pre>
+    # Create description from first p tag
+    $api-&gt;parse_description_from_first_p_tag($data);
+
+    # Get first image src
+    $api-&gt;parse_first_img_src($data);
+
+    # Read common templates
+    $api-&gt;read_common_templates($data);
+</pre>
+<p>
+  次にTwitterカードの部分を以下のように記述します。
+</p>
+<pre>
+    # Add meta description
+    $api-&gt;add_meta_description($data);
+    
+    # Twitter card
+    {
+      my $meta = $data-&gt;{meta};
+      
+      my $site_url = $config-&gt;{site_url};
+      my $title = $data-&gt;{title} || '';
+      my $description = $data-&gt;{description} || '';
+      my $img_src = $data-&gt;{img_src};
+      
+      my $twitter_card = &lt;&lt;"EOS";
+&lt;meta name="twitter:card" content="summary" /&gt;
+&lt;meta name="twitter:site" content="\@perlzemi" /&gt;
+&lt;meta name="twitter:title" content="$title" /&gt;
+&lt;meta name="twitter:description" content="$description" /&gt;
+EOS
+      if (defined $img_src) {
+        $twitter_card .= &lt;&lt;"EOS";
+&lt;meta name="twitter:image" content="$site_url$img_src" /&gt;
+EOS
+      }
+      
+      $meta .= "\n$twitter_card\n";
+      
+      $data-&gt;{meta} = $meta;
+    }
+    
+    # Build entry html
+    $api-&gt;build_entry($data);
+</pre>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    メニュー
+  </div>
+  <ul>
+    <li><a href="/blog/20190416153053.html">Windowsで個人ブログを作る</a></li>
+    <li>Macで個人ブログを作る</li>
+    <li>Linuxで個人ブログを作る</li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a href="https://tutorial.perlzemi.com/">制作 Perlゼミ</a>
+
+      </div>
+    </div>
+  </body>
+</html>

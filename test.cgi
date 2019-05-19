@@ -12,6 +12,12 @@
 
 <title>Title - Perlで個人サイト作ろ</title>
 <meta name="description" content="#!/usr/bin/env perl">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@perlzemi" />
+<meta name="twitter:title" content="Title - Perlで個人サイト作ろ" />
+<meta name="twitter:description" content="#!/usr/bin/env perl" />
+
+
   </head>
   <body>
     <div class="container">
