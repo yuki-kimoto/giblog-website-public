@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+<title>お問い合わせフォームを設置しよう - Perlで個人サイト作ろ</title>
+<meta name="description" content="お問い合わせフォームを設置してみましょう。">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@perlzemi" />
+<meta name="twitter:title" content="お問い合わせフォームを設置しよう - Perlで個人サイト作ろ" />
+<meta name="twitter:description" content="お問い合わせフォームを設置してみましょう。" />
+
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<h1>
+  <a href="/">Perlで個人サイト作ろ</a>
+</h1>
+<div class="site-description">
+  個人サイトの作り方を解説。ブログを使った情報発信、Webサイトでの商品紹介。お問合せフォームもサポート。Perlによるカスタマイズ。レンタルサーバー、ドメイン取得、SSLなどの、サイトの公開方法も解説。
+</div>
+
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <h2><a href="/blog/20190603081056.html">お問い合わせフォームを設置しよう</a></h2>
+<p>
+  お問い合わせフォームを設置してみましょう。
+</p>
+<p>
+  CGIが実行できるレンタルサーバーで動いていることが条件です。
+</p>
+<p>
+  今回紹介するのは、件名とメールアドレスとメッセージを送信できる<a href="https://tutorial.perlzemi.com/mail.html">シンプルなメールフォーム</a>です。
+</p>
+<p>
+  お問い合わせフォームのHTMLとお問い合わせフォームのCGIを設定することで、動きます
+</p>
+<h3>お問い合わせフォームのHTML</h3>
+<p>
+  お問い合わせフォームのHTMLです。
+</p>
+<pre>
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"&gt;&lt;/script&gt;
+
+&lt;script&gt;
+  $(function() {
+    $('.mail-form button').on('click', function () {
+      var form_values = $('.mail-form form').serialize();
+      $.post(
+        "/mail.cgi",
+        form_values,
+        function (data) {
+          if (data.success) {
+            $('.mail-form').html('&lt;div class="mail-form-success"&gt;メッセージを受け付けました。送信ありがとうございます。&lt;/div&gt;');
+          }
+          else {
+            // エラーメッセージ
+            var errors = data.errors;
+            $('.mail-form-errors').empty();
+            for (var i = 0; i &lt; errors.length; i++) {
+              var error = errors[i];
+              var li = $('&lt;li&gt;&lt;/li&gt;');
+              li.text(error);
+              $('.mail-form-errors').append(li);
+            }
+          }
+        },
+        "json"
+      );
+    });
+  });
+&lt;/script&gt;
+
+&lt;h2&gt;お問合せフォーム&lt;/h2&gt;
+&lt;div class="mail-form"&gt;
+  &lt;ul class="mail-form-errors"&gt;
+  &lt;/ul&gt;
+  &lt;form&gt;
+    &lt;label&gt;
+      &lt;div class="mail-form-title"&gt;
+        名前:
+      &lt;/div&gt;
+      &lt;div class="mail-form-body"&gt;
+        &lt;input type="text" size=50 name="name"&gt;&lt;br&gt;
+      &lt;/div&gt;
+    &lt;/label&gt;
+    &lt;label&gt;
+      &lt;div class="mail-form-title"&gt;
+        メールアドレス:
+      &lt;/div&gt;
+      &lt;div class="mail-form-body"&gt;
+        &lt;input type="text" size=50 name="email"&gt;
+      &lt;/div&gt;
+    &lt;/label&gt;
+    &lt;label&gt;
+      &lt;div class="mail-form-title"&gt;
+        メッセージ:
+      &lt;/div&gt;
+      &lt;div class="mail-form-body"&gt;
+        &lt;textarea name="message"&gt;&lt;/textarea&gt;
+      &lt;/div&gt;
+    &lt;/label&gt;
+    &lt;div&gt;
+      &lt;button type="button"&gt;メッセージを送信&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+&lt;/div&gt;
+</pre>
+<p>
+  これを、以下のファイル名で、配置してください。
+</p>
+<pre>
+templates/mail.html
+</pre>
+<h3>お問い合わせフォームのCGI</h3>
+<p>
+  お問い合わせフォームのCGIです。
+</p>
+<p>
+  「$mailto」の部分に、送信先のメールアドレスを指定してください。
+</p>
+<pre>
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+use utf8;
+
+use CGI;
+use JSON::PP 'encode_json';
+use MIME::Lite;
+
+use Encode 'decode', 'encode';
+
+my $q = CGI-&gt;new;
+
+# Mail to
+my $mailto = 'info@foo.example';
+
+# Mail title
+my $subject = 'サイトにメールが届いています';
+
+# Errors
+my @errors;
+
+# Name
+my $name = $q-&gt;param('name');
+$name = decode('UTF-8', $name);
+unless (length $name) {
+  push @errors, "名前を指定してください。";
+}
+
+# Email
+my $email = $q-&gt;param('email');
+$email = decode('UTF-8', $email);
+
+unless (length $email && $email =~ /\@/) {
+  push @errors, "Eメールアドレスを正しく入力してください。";
+}
+
+# Message
+my $message = $q-&gt;param('message');
+$message = decode('UTF-8', $message);
+unless (length $message) {
+  push @errors, "メッセージを指定してください。";
+}
+
+# Response
+my $res = &lt;&lt;"EOS";
+Content-type: application/json;
+
+EOS
+
+my $res_data = {};
+
+unless (@errors) {
+  # Mail body
+  my $mail_body = &lt;&lt;"EOS";
+Name: $name
+Email: $email
+Message: $message
+EOS
+
+  # Send mail
+  my $msg = MIME::Lite-&gt;new(
+    From    =&gt; $mailto,
+    To      =&gt; $mailto,
+    Subject =&gt; encode('MIME-Header', $subject),
+    Type    =&gt; 'multipart/mixed'
+  );
+  $msg-&gt;attach(
+    Type     =&gt; 'TEXT',
+    Data     =&gt; encode('UTF-8', $mail_body),
+  );
+  unless ($msg-&gt;send) {
+    push @errors, "メールの送信に失敗しました。";
+  }
+}
+
+if (@errors) {
+  $res_data-&gt;{success} = 0;
+  $res_data-&gt;{errors} = \@errors;
+}
+else {
+  $res_data-&gt;{success} = 1;
+}
+
+# JSON response
+my $res_json = encode_json($res_data);
+$res .= "$res_json\n";
+
+# Print response
+print $res;
+</pre>
+<p>
+  これを、以下のファイル名で、配置してください。
+</p>
+<pre>
+templates/static/mail.cgi
+</pre>
+<p>
+  改行コードは「LF」で保存してください。
+</p>
+<p>
+  パーミッションは以下のコマンドで、「755」に変更してください。
+</p>
+<pre>
+chmod 755 templates/static/mail.cgi
+</pre>
+<p>
+  Gitを使う場合以外で、公開サーバーに配置する場合は、公開サーバー上でも、改行コードをLFに、パーミッションを755に設定する必要があります。
+</p>
+<p>
+  Perl入門ゼミの「<a href="https://github.com/yuki-kimoto/perlzemitut/tree/master/templates">メールフォーム</a>」も参考にしてください。
+</p>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    メニュー
+  </div>
+  <ul>
+    <li><a href="/blog/20190416153053.html">Windowsで個人ブログを作る</a></li>
+    <li>Macで個人ブログを作る</li>
+    <li>Linuxで個人ブログを作る</li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a href="https://tutorial.perlzemi.com/">制作 Perlゼミ</a>
+
+      </div>
+    </div>
+  </body>
+</html>
