@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="/images/giblog-favicon.png">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+<title>お問合せフォーム - Giblog公式サイト - Gitで管理できるWebサイト・ブログの作成のツール</title>
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@perlzemi" />
+<meta name="twitter:title" content="お問合せフォーム - Giblog公式サイト - Gitで管理できるWebサイト・ブログの作成のツール" />
+<meta name="twitter:description" content="" />
+
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<div class="header-content">
+  <a href="/"><img src="/images/giblog-logo-image-text.png" width="170" alt="Giblog公式サイト" style="vertical-align:-30px;"></a>
+  <a style="font-size:15px;text-decoration:none;color:#444;margin-right:18px;"href="/start.html">Giblogをはじめよう</a>
+  <a style="font-size:15px;text-decoration:none;color:#444;margin-right:18px;"href="https://docjp.giblog.net/">公式ドキュメント</a>
+  <a style="font-size:15px;text-decoration:none;color:#444;margin-right:18px;"href="https://github.com/yuki-kimoto/giblog">リポジトリ</a>
+  <!-- テーマ -->
+  <!-- 機能追加 -->
+  <!-- フォーラム -->
+  <!-- 更新情報 -->
+  <!-- 参加・貢献 -->
+</div>
+
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  $(function() {
+    $('.mail-form button').on('click', function () {
+      var form_values = $('.mail-form form').serialize();
+      $.post(
+        "/mail.cgi",
+        form_values,
+        function (data) {
+          if (data.success) {
+            $('.mail-form').html('<div class="mail-form-success">メッセージを受け付けました。送信ありがとうございます。</div>');
+          }
+          else {
+            // エラーメッセージ
+            var errors = data.errors;
+            $('.mail-form-errors').empty();
+            for (var i = 0; i < errors.length; i++) {
+              var error = errors[i];
+              var li = $('<li></li>');
+              li.text(error);
+              $('.mail-form-errors').append(li);
+            }
+          }
+        },
+        "json"
+      );
+    });
+  });
+</script>
+<h2><a href="/mail.html">お問合せフォーム</a></h2>
+<div class="mail-form">
+  <ul class="mail-form-errors">
+  </ul>
+  <form>
+    <label>
+      <div class="mail-form-title">
+        名前:
+      </div>
+      <div class="mail-form-body">
+        <input type="text" size=50 name="name"><br>
+      </div>
+    </label>
+    <label>
+      <div class="mail-form-title">
+        メールアドレス:
+      </div>
+      <div class="mail-form-body">
+        <input type="text" size=50 name="email">
+      </div>
+    </label>
+    <label>
+      <div class="mail-form-title">
+        メッセージ:
+      </div>
+      <div class="mail-form-body">
+        <textarea name="message"></textarea>
+      </div>
+    </label>
+    <div>
+      <button type="button">メッセージを送信</button>
+    </div>
+  </form>
+</div>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    メニュー
+  </div>
+  <ul>
+    <li><a href="/blog/20190416153053.html">Windowsで個人ブログを作る</a></li>
+    <li>Macで個人ブログを作る</li>
+    <li>Linuxで個人ブログを作る</li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a style="font-size:15px;text-decoration:none;" href="https://tutorial.perlzemi.com/">制作 Perlゼミ</a>
+
+      </div>
+    </div>
+  </body>
+</html>
