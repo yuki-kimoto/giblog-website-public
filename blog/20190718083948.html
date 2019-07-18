@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="/images/giblog-favicon.png">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+<title>FAQ よくある質問 - Giblog公式サイト - Gitで管理できるWebサイト・ブログの作成のツール</title>
+<meta name="description" content="morboというのは、PerlのWebフレームワークであるMojoliciousの開発サーバーです。">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@perlzemi" />
+<meta name="twitter:title" content="FAQ よくある質問 - Giblog公式サイト - Gitで管理できるWebサイト・ブログの作成のツール" />
+<meta name="twitter:description" content="morboというのは、PerlのWebフレームワークであるMojoliciousの開発サーバーです。" />
+
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<script>
+  $(document).ready(function () {
+    $(window).on('resize', function () {
+      var width = $(window).width();
+      
+      if (width > 860) {
+        $('.header-content-menu').show();
+      }
+    });
+  });
+</script>
+
+<div class="header-content">
+  <div class="header-content-title">
+    <a href="/"><img src="/images/giblog-logo-image-text.png" width="170" alt="Giblog公式サイト" style="vertical-align:-25px;"></a>
+  </div>
+  <div class="menu-button" onclick="$('.header-content-menu').toggle();">
+    <img src="/images/menu.png" style="width:40px;">
+  </div>
+  <ul class="header-content-menu">
+    <li><a href="/start.html">Giblogをはじめよう</a></li>
+    <li><a href="https://docjp.giblog.net/">公式ドキュメント</a></li>
+    <li><a href="https://giblog.slack.com">フォーラム</a>
+    <li><a href="https://github.com/yuki-kimoto/giblog">リポジトリ</a></li>
+    <!-- テーマ -->
+    <!-- 更新情報 -->
+    <li><a class="otoiawase" href="/mail.html">お問い合わせ</a></li>
+  </ul>
+</div>
+
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <h2><a href="/blog/20190718083948.html">FAQ よくある質問</a></h2>
+<h3>morbo serve.plだけで、すべての記事が自動的に再構築される仕組みを教えてください</h3>
+<p>
+  morboというのは、PerlのWebフレームワークである<a href="https://github.com/mojolicious/mojo">Mojolicious</a>の開発サーバーです。
+</p>
+<p>
+  morboは「templates」以下にあるファイルが更新された場合、自分自身を再起動させます。
+</p>
+<p>
+  この再起動のタイミングで、再構築のコマンド「giblog build」を実行しています。
+</p>
+<h3>なぜ再構築が、こんなに速いのですか。数百ある記事の再構築が1秒以内で終わります。</h3>
+<p>
+  Perlゼミが行った一般的なサーバー上におけるベンチマークでは、645ページの再構築が0.78秒で完了します。
+</p>
+<p>
+  これは、Perl自体が持つテキスト処理のパフォーマンスがよいということと、必要最小限のことだけに限定して処理をしているのが理由です。
+</p>
+<h3>静的にブログを作成することと、動的にブログを作成することの利点を教えてください</h3>
+<p>
+  <b>「Perlで個人サイト作ろ」では、静的にブログを作成</b>する方法を選択しています。
+</p>
+<p>
+  静的にブログを作成することの最大の利点は、すべての記事を単なるファイルとして、保存しておくことができることです。
+</p>
+<p>
+  画像やJavaScriptを配置するのも、ファイルとして配置するだけです。
+</p>
+<p>
+  サイトを公開したい場合は、ファイルをレンタルサーバーに配置するだけで、個人サイトを始めることができます。
+</p>
+<p>
+  gitというバージョン管理システムを利用すれば、公開サーバーへの配置は、非常に簡単になります。
+</p>
+<p>
+  <b>「WordPress」という代表的なブログ作成ツールは、動的にブログを作成</b>する方法を選択しています。
+</p>
+<p>
+  動的にブログを作成することの一番の利点は、画面を使った編集と相性がよいということです。
+</p>
+<p>
+  ブラウザ上から編集して、すぐに記事を更新することができます。
+</p>
+<p>
+  記事が増えてきても、再構築の時間が延びるといったことはありません。
+</p>
+<p>
+  記事そのものの中に、プログラムを書くことができます。
+</p>
+<p>
+  機能を追加するために、たくさんのプラグインが用意されているというのも魅力でしょう。
+</p>
+<h3>コーポレートサイトを作成することはできますか</h3>
+<p>
+  コーポレートサイトは、会社の自己紹介というものですから、GitblogによるWebサイト制作の手順で作成することができます。
+</p>
+<p>
+  <a href="/blog/20190514081022.html">Perlでコーポレートサイト作ろ</a>
+</p>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    メニュー
+  </div>
+  <ul>
+    <li><a href="/blog/20190416153053.html">Windowsで個人ブログを作る</a></li>
+    <li>Macで個人ブログを作る</li>
+    <li>Linuxで個人ブログを作る</li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a style="font-size:15px;text-decoration:none;" href="https://tutorial.perlzemi.com/">制作 Perlゼミ</a>
+
+      </div>
+    </div>
+  </body>
+</html>

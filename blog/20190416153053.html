@@ -8,12 +8,12 @@
 <link rel="stylesheet" type="text/css" href="/css/common.css">
 <script src="/js/jquery-3.4.1.min.js"></script>
 
-<title>Windowsで個人サイト作成の環境を作ろ - Giblog公式サイト - Gitで管理できるWebサイト・ブログの作成のツール</title>
-<meta name="description" content="Windowsで、個人サイトを作成するための環境を最初に作成しましょう。">
+<title>WindowsでWebサイト作成の環境を作る - Giblog公式サイト - Gitで管理できるWebサイト・ブログの作成のツール</title>
+<meta name="description" content="Windowsで、Webサイトを作成するための環境を最初に作成しましょう。">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@perlzemi" />
-<meta name="twitter:title" content="Windowsで個人サイト作成の環境を作ろ - Giblog公式サイト - Gitで管理できるWebサイト・ブログの作成のツール" />
-<meta name="twitter:description" content="Windowsで、個人サイトを作成するための環境を最初に作成しましょう。" />
+<meta name="twitter:title" content="WindowsでWebサイト作成の環境を作る - Giblog公式サイト - Gitで管理できるWebサイト・ブログの作成のツール" />
+<meta name="twitter:description" content="Windowsで、Webサイトを作成するための環境を最初に作成しましょう。" />
 <meta name="twitter:image" content="http://somesite.example/images/msys2.png" />
 
 
@@ -61,9 +61,9 @@
 
   </div>
   <div class="middle">
-    <h2><a href="/blog/20190416153053.html">Windowsで個人サイト作成の環境を作ろ</a></h2>
+    <h2><a href="/blog/20190416153053.html">WindowsでWebサイト作成の環境を作る</a></h2>
 <p>
-  Windowsで、個人サイトを作成するための環境を最初に作成しましょう。
+  Windowsで、Webサイトを作成するための環境を最初に作成しましょう。
 </p>
 <p>
   「Windows 10 64bit」を想定して解説されますが、Windows 8やWindows 7の32bitでも動くように構成します(予定)。
@@ -85,7 +85,7 @@
   <li><a href="https://tutorial.perlzemi.com/">Perl入門ゼミ - Perlを0から学べる無料テキスト</a></li>
 </ul>
 <p>
-  「Perlで個人サイト作ろ」も、同じ手順で作成されています。
+  Giblogで作成されたWebサイトも、同じ手順で作成されています。
 </p>
 <p>
   これらのサイトは、ブログですが、普通のWebサイトを作りたい場合も簡単なのでご安心を。
@@ -110,7 +110,7 @@
   この真っ暗い画面はなんでしょうか? ちょっとびっくりしますね。
 </p>
 <p>
-  少しだけ解説すると、この真っ黒い画面に、コマンドと呼ばれる文字を打ち込んで、個人サイトを作成します。
+  少しだけ解説すると、この真っ黒い画面に、コマンドと呼ばれる文字を打ち込んで、Webサイトを作成します。
 </p>
 <p>
   <b>ブログを作成したい場合</b>
@@ -125,7 +125,7 @@ giblog new_blog mysite
 giblog new_website mysite
 </pre>
 <p>
-  上記のコマンドを実行すれば、個人サイトが完成します。上記のコマンドはPerlで作られていて、これを実行するための環境を作っていきます。
+  上記のコマンドを実行すれば、Webサイトが完成します。上記のコマンドはPerlで作られていて、これを実行するための環境を作っていきます。
 </p>
 <p>
   msys2は、上のようなコマンドを実行するためのツールだと考えてくれれば大丈夫です。
@@ -242,7 +242,7 @@ kimot
   </li>
 </ul>
 <p>
-  がありますが、<b>「MSYS2 MSYS」</b>を起動しましょう。msys2には、3種類の起動スクリプトがありますが、Perlで個人サイトを作る今回の場合は「MSYS2 MSYS」を選択します。
+  がありますが、<b>「MSYS2 MSYS」</b>を起動しましょう。msys2には、3種類の起動スクリプトがありますが、PerlでWebサイトを作る今回の場合は「MSYS2 MSYS」を選択します。
 </p>
 <p>
   これを間違うと正しくPerlの環境が整えられないので、注意してください。
@@ -310,9 +310,9 @@ perl -v
 <pre>
 This is perl 5, version 24, subversion 4 (v5.24.4) built for x86_64-msys-thread-multi
 </pre>
-<h4>個人サイト作成ツール</h4>
+<h4>Webサイト作成ツール</h4>
 <p>
-  個人サイト作成ツールとして「Giblog」と「Mojolicious」というPerlのライブラリをインストールします。
+  Webサイト作成ツールとして「Giblog」と「Mojolicious」というPerlのライブラリをインストールします。
 </p>
 <p>
   Perlのライブラリには、Unix/Linux環境で動くことが想定されているものもあります。以下の設定で、シンボリックリンクが、msys2で正しく動くようにしてください。
@@ -336,12 +336,12 @@ cpan Mojolicious
 <p>
   このインストールが確認できると環境構築の作業は終了です。
 </p>
-<h3>個人サイトの作成</h3>
+<h3>Webサイトの作成</h3>
 <p>
-  ようやくここまで来ました。ついに、個人サイトを作成してみましょう。
+  ようやくここまで来ました。ついに、Webサイトを作成してみましょう。
 </p>
 <p>
-  以下のコマンドで個人サイトを作成できます。
+  以下のコマンドでWebサイトを作成できます。
 </p>
 <p>
   <b>ブログを作成したい場合</b>
@@ -356,10 +356,10 @@ giblog new_blog mysite
 giblog new_website mysite
 </pre>
 <p>
-  個人サイトを作成したら、作成した個人サイトを、ブラウザから確認してみましょう。
+  Webサイトを作成したら、作成したWebサイトを、ブラウザから確認してみましょう。
 </p>
 <p>
-  以下のコマンドで、個人サイトが見れるようになります。
+  以下のコマンドで、Webサイトが見れるようになります。
 </p>
 <pre>
 cd ~/mysite
