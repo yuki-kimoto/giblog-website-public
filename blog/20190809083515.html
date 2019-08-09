@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="/images/giblog-favicon.png">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+<title>すべてのページをgitで管理 - Giblog公式サイト - Gitで管理できるWebサイト・ブログの作成のツール</title>
+<meta name="description" content="Giblogでは、すべてのファイルは静的なファイルとしてGitで管理できます。">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@perlzemi" />
+<meta name="twitter:title" content="すべてのページをgitで管理 - Giblog公式サイト - Gitで管理できるWebサイト・ブログの作成のツール" />
+<meta name="twitter:description" content="Giblogでは、すべてのファイルは静的なファイルとしてGitで管理できます。" />
+
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<script>
+  $(document).ready(function () {
+    $(window).on('resize', function () {
+      var width = $(window).width();
+      
+      if (width > 860) {
+        $('.header-content-menu').show();
+      }
+    });
+  });
+</script>
+
+<div class="header-content">
+  <div class="header-content-title">
+    <a href="/"><img src="/images/giblog-logo-image-text.png" width="170" alt="Giblog公式サイト" style="vertical-align:-25px;"></a>
+  </div>
+  <div class="menu-button" onclick="$('.header-content-menu').toggle();">
+    <img src="/images/menu.png" style="width:40px;">
+  </div>
+  <ul class="header-content-menu">
+    <li><a href="/start.html">Giblogをはじめよう</a></li>
+    <li><a href="https://docjp.giblog.net/">公式ドキュメント</a></li>
+    <li><a href="https://giblog.slack.com">フォーラム</a>
+    <li><a href="https://github.com/yuki-kimoto/giblog">リポジトリ</a></li>
+    <!-- テーマ -->
+    <!-- 更新情報 -->
+    <li><a class="otoiawase" href="/mail.html">お問い合わせ</a></li>
+  </ul>
+</div>
+
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <h2><a href="/blog/20190809083515.html">すべてのページをgitで管理</a></h2>
+<p>
+  Giblogでは、すべてのファイルは静的なファイルとしてGitで管理できます。
+</p>
+<p>
+  Giblogは、動的にWebサイトを生成するCMSツールではなく、静的にWebサイトを生成するCMSツールです。
+</p>
+<p>
+  ブログ記事やJavaScriptやスタイルシートや画像ファイル、動画ファイルは、すべてファイルとして管理できます。
+</p>
+<p>
+  データベースに関する知識は、まったく必要がありません。
+</p>
+<h3>gitを使った記事の管理</h3>
+<p>
+  Giblogでは、記事を作成し、ビルドコマンドを実行すると、ヘッダやフッタで囲まれた公開用のHTMLが生成されます。
+</p>
+<pre>
+# 記事を作成
+templates/mypage.html
+
+# ビルド
+giblog build
+</pre>
+<p>
+  ビルドされたファイルは公開ディレクトリ「public」以下に生成されます。
+</p>
+<pre>
+# 記事を作成
+public/mypage.html
+</pre>
+<p>
+  サイトの構成は以下のようになっており、ビルドする前のファイルとビルド後の公開ファイルは、別々のリポジトリで管理するようになっています。
+</p>
+<pre>
+mysite - .git
+       - public -
+                - .git
+</pre>
+<p>
+  ビルド前のファイルと、ビルド後のファイルの管理を別のGitリポジトリとして管理されているので、公開ファイルを単に「git clone」あるいは「git pull」することで、公開サーバーに配置することができます。
+</p>
+<p>
+  CSSやJavaScript、画像ファイル、動画ファイルなどの、ヘッダやフッタを結合する必要のないファイルは「templates/static」ディレクトリに配置することで、何の編集も行わずに、公開ディレクトリに配置することができます。
+</p>
+<pre>
+# 画像ファイル配置
+templates/static/example.png
+
+# ビルド
+giblog build
+</pre>
+<pre>
+# 記事を作成
+public/example.png
+</pre>
+<p>
+  Git登場以前は、CMSが記事の管理機能を持つことが必須でした。記事の管理のために独自のCMSの機能を覚えることがユーザーに求められました。
+</p>
+<p>
+  Giblogは、記事を作成する機能に特化し、記事の管理機能をGitにゆだねます。Giblogのユーザーは、優れた記事管理機能を持つGitの機能をフルに活用できます。
+</p>
+<h3>記事のグループ管理機能</h3>
+<p>
+  Giglogは、記事の管理機能を、Gitにすべてゆだねています。
+</p>
+<p>
+  Gitが得意とするのは、プログラムの共同開発です。複数人で共同してプログラムを開発するという目的のために、Gitは活用されています。
+</p>
+<p>
+  このプログラムの共同管理機能を、記事のグループ管理機能として使うことができます。
+</p>
+<p>
+  <a href="https://github.co.jp/">Github</a>にWebサイトのリポジトリを作成して、共同記事の執筆者が、リポジトリをクローンします。
+</p>
+<p>
+  共同執筆者が、自分のローカル環境で、記事を書いて、プルリクエストを依頼します。
+</p>
+<p>
+  すると、メインの執筆者が、その記事の内容を、自分のリポジトリに取り込むことができます。
+</p>
+<p>
+  この記事の管理方法は、セキュリティという面を考えても非常に強固です。
+</p>
+<p>
+  動的にWebサイトを生成するCMSツールでは、記事のグループ管理を行うには、管理画面から、IDとパスワードを入力することを必要とします。
+</p>
+<p>
+  Giblogは、静的にWebサイトを生成するツールであり、共同管理をGitにゆだねるので、セキュリティ上のリスクが軽減されます。
+</p>
+<p>
+  ツールの側のセキュリティホールのために、Webサイトが書き換えられ、企業信用が棄損されるということが、起こらないのです。
+</p>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    メニュー
+  </div>
+  <ul>
+    <li><a href="/blog/20190416153053.html">Windowsで個人ブログを作る</a></li>
+    <li>Macで個人ブログを作る</li>
+    <li>Linuxで個人ブログを作る</li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a style="font-size:15px;text-decoration:none;" href="https://tutorial.perlzemi.com/">制作 Perlゼミ</a>
+
+      </div>
+    </div>
+  </body>
+</html>
