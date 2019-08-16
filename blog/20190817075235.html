@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="/images/giblog-favicon.png">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+<title>Giblogの強固なセキュリティ - Giblog公式サイト - Gitで管理できるWebサイト・ブログの作成のツール</title>
+<meta name="description" content="Gitblogな強固なセキュリティを持っています。Giblogは、Webサイトを静的なHTMLとして生成します。">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@perlzemi" />
+<meta name="twitter:title" content="Giblogの強固なセキュリティ - Giblog公式サイト - Gitで管理できるWebサイト・ブログの作成のツール" />
+<meta name="twitter:description" content="Gitblogな強固なセキュリティを持っています。Giblogは、Webサイトを静的なHTMLとして生成します。" />
+
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<script>
+  $(document).ready(function () {
+    $(window).on('resize', function () {
+      var width = $(window).width();
+      
+      if (width > 860) {
+        $('.header-content-menu').show();
+      }
+    });
+  });
+</script>
+
+<div class="header-content">
+  <div class="header-content-title">
+    <a href="/"><img src="/images/giblog-logo-image-text.png" width="170" alt="Giblog公式サイト" style="vertical-align:-25px;"></a>
+  </div>
+  <div class="menu-button" onclick="$('.header-content-menu').toggle();">
+    <img src="/images/menu.png" style="width:40px;">
+  </div>
+  <ul class="header-content-menu">
+    <li><a href="/start.html">Giblogをはじめよう</a></li>
+    <li><a href="https://docjp.giblog.net/">公式ドキュメント</a></li>
+    <li><a href="https://giblog.slack.com">フォーラム</a>
+    <li><a href="https://github.com/yuki-kimoto/giblog">リポジトリ</a></li>
+    <!-- テーマ -->
+    <!-- 更新情報 -->
+    <li><a class="otoiawase" href="/mail.html">お問い合わせ</a></li>
+  </ul>
+</div>
+
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <h2><a href="/blog/20190817075235.html">Giblogの強固なセキュリティ</a></h2>
+<p>
+  Gitblogな強固なセキュリティを持っています。Giblogは、Webサイトを静的なHTMLとして生成します。
+</p>
+<h3>静的サイトによる強固なセキュリティ</h3>
+<p>
+  つまり、動的なWebサイト作成ツールで起こりうるツール自体の脆弱性や、プラグインの脆弱性が起こることはありません。
+</p>
+<p>
+  Giblogは、まず開発環境で、Webサイトを作成してから、それをプロダクション環境にgitを使って、デプロイするという方法を採用しています。
+</p>
+<p>
+  Webページを生成するときに、プログラムが動くというわけではなく、あらかじめHTMLファイルを作って、それをコピーするので、レンタルサーバーのApacheなどのWebサーバーがHTMLファイルを配信してくれます。
+</p>
+<p>
+  つまり、静的ファイル配信についての、脆弱性対策については、レンタルサーバー側が、責任を持ってくれます。
+</p>
+<h3>お問合せフォームなどのPHPやCGIを設置した場合はどうなりますか</h3>
+<p>
+  お問合せフォームなどのPHPやCGIをレンタルサーバーに設置した場合は、PHPやCGIを利用しているページで、セキュリティリスクが発生します。
+</p>
+<p>
+  設置するPHPやCGIは、Giblog自体の機能ではありませんので、PHPやCGIにおいて発生しうるセキュリティリスクが発生します。
+</p>
+<p>
+  これは、Webサイトで、動的なプログラムを実行する場合に発生する、通常のセキュリティリスクです。
+</p>
+<p>
+  Webサイトを完全に静的なものにして<a href="https://www.google.com/intl/ja_jp/forms/about/">googleフォーム</a>などのフォームサービスを利用する、より安全な方法もあります。
+</p>
+<p>
+  セキュリティリスクを受け入れて、自分のサイトで完全に完結したい場合は、PHPやCGIのお問合せフォームの利用を。googleフォームなどのフォームサービスなどの利用を受け入れて、セキュリティリスクを減らしたい場合は、Webサイトを完全に静的なものにして、セキュリティを強固にすることができます。
+</p>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    メニュー
+  </div>
+  <ul>
+    <li><a href="/blog/20190416153053.html">Windowsで個人ブログを作る</a></li>
+    <li>Macで個人ブログを作る</li>
+    <li>Linuxで個人ブログを作る</li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a style="font-size:15px;text-decoration:none;" href="https://tutorial.perlzemi.com/">制作 Perlゼミ</a>
+
+      </div>
+    </div>
+  </body>
+</html>
