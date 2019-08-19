@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="/images/giblog-favicon.png">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+<title>Giblogで作成したWebサイトにお問い合わせフォームを設置できます - Giblog公式サイト - Gitで管理できるWebサイト・ブログの作成のツール</title>
+<meta name="description" content="Giblogは、静的なCMS生成ツールですが、お問い合わせフォームを設置することができます。">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@perlzemi" />
+<meta name="twitter:title" content="Giblogで作成したWebサイトにお問い合わせフォームを設置できます - Giblog公式サイト - Gitで管理できるWebサイト・ブログの作成のツール" />
+<meta name="twitter:description" content="Giblogは、静的なCMS生成ツールですが、お問い合わせフォームを設置することができます。" />
+<meta name="twitter:image" content="http://somesite.example/images/otoiawase-example.png" />
+
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<script>
+  $(document).ready(function () {
+    $(window).on('resize', function () {
+      var width = $(window).width();
+      
+      if (width > 860) {
+        $('.header-content-menu').show();
+      }
+    });
+  });
+</script>
+
+<div class="header-content">
+  <div class="header-content-title">
+    <a href="/"><img src="/images/giblog-logo-image-text.png" width="170" alt="Giblog公式サイト" style="vertical-align:-25px;"></a>
+  </div>
+  <div class="menu-button" onclick="$('.header-content-menu').toggle();">
+    <img src="/images/menu.png" style="width:40px;">
+  </div>
+  <ul class="header-content-menu">
+    <li><a href="/start.html">Giblogをはじめよう</a></li>
+    <li><a href="https://docjp.giblog.net/">公式ドキュメント</a></li>
+    <li><a href="https://giblog.slack.com">フォーラム</a>
+    <li><a href="https://github.com/yuki-kimoto/giblog">リポジトリ</a></li>
+    <!-- テーマ -->
+    <!-- 更新情報 -->
+    <li><a class="otoiawase" href="/mail.html">お問い合わせ</a></li>
+  </ul>
+</div>
+
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <h2><a href="/blog/20190820075913.html">Giblogで作成したWebサイトにお問い合わせフォームを設置できます</a></h2>
+<p>
+  Giblogは、静的なCMS生成ツールですが、お問い合わせフォームを設置することができます。
+</p>
+<div style="text-align:center">
+  <a href="/mail.html">お問い合わせフォームのサンプル</a>
+</div>
+<div style="text-align:center">
+  <a href="/mail.html"><img src="/images/otoiawase-example.png" style="border:1px solid #ddd;width:80%;"></a>
+</div>
+<p>
+  お問い合わせフォームは、Giblog自体には含まれません。
+</p>
+<p>
+  Giblogは、静的なCMSツールとして、GiblogのWebサイトの中に、CGIのフォームを埋め込める仕組みを準備しています。
+</p>
+<p>
+  実際のCGIフォームの構成については、Giblog公式サイトのリポジトリの中にある以下の二つのファイルを見てください。
+</p>
+<p>
+  <a href="https://github.com/yuki-kimoto/giblog-website/tree/master/templates">Giblog公式サイトのお問い合わせフォーム</a>
+</p>
+<pre>
+templates/mail.html
+template/static/mail.cgi
+</pre>
+<p>
+  「git clone」で、GiblogWebサイトを、そのままコピーできますが、お問い合わせフォームだけを保存する場合は、CGIプログラムのパーミッションは755で、改行コードはLFで、保存してください。
+</p>
+<h3>Webサイトにお問い合わせフォームを埋め込める仕組み</h3>
+<p>
+  Giblogは、Webサイトに埋め込むことができるCGIのお問い合わせフォームを次の方法で実現しています。
+</p>
+<h4>お問い合わせフォームは、単純なHTMLのテンプレート</h4>
+<p>
+  お問い合わせフォームは、単純なHTMLのファイルです。
+</p>
+<pre>
+templates/mail.html
+</pre>
+<p>
+  HTMLのformタグを使って、メールフォームを記述しています。
+</p>
+<p>
+  ヘッダとフッタなど、通常のコンテンツと同じ構成で、ラッピングされます。
+</p>
+<h4>メールを送信するCGIプログラム</h4>
+<pre>
+template/static/mail.cgi
+</pre>
+<p>
+  は、メールを送信するCGIプログラムです。
+</p>
+<h4>Ajax通信で、CGIを呼び出す</h4>
+<p>
+  「mail.html」の中には、JavaScriptが記述されており、Ajax通信で「mail.cgi」を呼び出します。
+</p>
+<p>
+  このようにして、お問い合わせフォームを、Webサイトに埋め込む方法を実現しています。
+</p>
+<h3>お問い合わせフォーム以外のCGIで作成したフォームを作成できますか</h3>
+<p>
+  はい。メッセージをやりとりするボードや、アンケートフォームなど、CGIプログラムでできることは、すべて実現可能です。
+</p>
+<h3>どのような環境で動きますか</h3>
+<p>
+  CGIをサポートしているレンタルサーバーを想定しています。
+</p>
+<h3>CGIフォームを設置した場合のセキュリティはどうなりますか</h3>
+<p>
+  CGIフォームを設置した場合のセキュリティは、そのCGIに脆弱性がないかどうかにかかっています。
+</p>
+<p>
+  お問い合わせフォームがサイトと一体になっていることよりも、セキュリティが優先事項の場合は、サイトを完全に静的なものにして、<a href="https://www.google.com/intl/ja_jp/forms/about/">googleフォーム</a>などの外部のWebサービスを利用することもできます。
+</p>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    メニュー
+  </div>
+  <ul>
+    <li><a href="/blog/20190416153053.html">Windowsで個人ブログを作る</a></li>
+    <li>Macで個人ブログを作る</li>
+    <li>Linuxで個人ブログを作る</li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a style="font-size:15px;text-decoration:none;" href="https://tutorial.perlzemi.com/">制作 Perlゼミ</a>
+
+      </div>
+    </div>
+  </body>
+</html>
