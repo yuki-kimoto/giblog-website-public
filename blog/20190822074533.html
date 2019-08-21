@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="/images/giblog-favicon.png">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+<title>Giblogの高速な再構築。再構築の自動化も可能。 - Giblog公式サイト - Gitで管理できるWebサイト・ブログの作成のツール</title>
+<meta name="description" content="Giblogの再構築は高速です。Giblogは静的なHTMLを生成するCMSですが、そのHTMLの再構築がストレスにならないように高速に実行できるようになっています。">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@perlzemi" />
+<meta name="twitter:title" content="Giblogの高速な再構築。再構築の自動化も可能。 - Giblog公式サイト - Gitで管理できるWebサイト・ブログの作成のツール" />
+<meta name="twitter:description" content="Giblogの再構築は高速です。Giblogは静的なHTMLを生成するCMSですが、そのHTMLの再構築がストレスにならないように高速に実行できるようになっています。" />
+
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<script>
+  $(document).ready(function () {
+    $(window).on('resize', function () {
+      var width = $(window).width();
+      
+      if (width > 860) {
+        $('.header-content-menu').show();
+      }
+    });
+  });
+</script>
+
+<div class="header-content">
+  <div class="header-content-title">
+    <a href="/"><img src="/images/giblog-logo-image-text.png" width="170" alt="Giblog公式サイト" style="vertical-align:-25px;"></a>
+  </div>
+  <div class="menu-button" onclick="$('.header-content-menu').toggle();">
+    <img src="/images/menu.png" style="width:40px;">
+  </div>
+  <ul class="header-content-menu">
+    <li><a href="/start.html">Giblogをはじめよう</a></li>
+    <li><a href="https://docjp.giblog.net/">公式ドキュメント</a></li>
+    <li><a href="https://giblog.slack.com">フォーラム</a>
+    <li><a href="https://github.com/yuki-kimoto/giblog">リポジトリ</a></li>
+    <!-- テーマ -->
+    <!-- 更新情報 -->
+    <li><a class="otoiawase" href="/mail.html">お問い合わせ</a></li>
+  </ul>
+</div>
+
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <h2><a href="/blog/20190822074533.html">Giblogの高速な再構築。再構築の自動化も可能。</a></h2>
+<p>
+  Giblogの再構築は高速です。Giblogは静的なHTMLを生成するCMSですが、そのHTMLの再構築がストレスにならないように高速に実行できるようになっています。
+</p>
+<h3>Giblogの高速な再構築 645ページを0.78秒</h3>
+<p>
+  再構築は「giblog build」コマンドで実行できます。
+</p>
+<pre>
+giblog build
+</pre>
+<p>
+  「templates」ディレクトリの中にあるリソースファイルから「public」ディレクトリの中に、公開用のHTMLファイルを生成します。
+</p>
+<p>
+  標準的なLinux環境のベンチマークでは、<b>645ページを0.78秒</b>で、構築できました。
+</p>
+<p>
+  再構築が、1秒以内に完了するのは、ストレスがなく快適です。
+</p>
+<h3>Giblogの再構築が速い理由</h3>
+<p>
+  Giblogの再構築はなぜここまで速いのでしょうか。いくつかの理由が考えられます。
+</p>
+<h4>機能を必要最小限に絞っている</h4>
+<p>
+  Giblogでは、<a href="/blog/20190816080249.html">高度なSEO対策</a>、<a href="/blog/20190819080050.html">スマートフォン対応</a>を導入しつつ、ページの生成に必要な機能を最小限に絞っています。
+</p>
+<p>
+  パフォーマンスのボトルネックになるような複雑な解析は行っておらず、情報発信をするWebサイトに必要な最低限の機能だけを提供しています。
+</p>
+<h4>PerlによるHTML生成</h4>
+<p>
+  GiblogのHTMLの生成には<a href="https://tutorial.perlzemi.com/">Perl</a>というプログラミング言語を使用しています。
+</p>
+<p>
+  Perlは、テキスト処理のために、記述性とパフォーマンスが最適化されているので、HTMLのようなテキスト出力が速いです。
+</p>
+<h3>再構築の自動化</h3>
+<p>
+  Giblogは、<a href="https://mojolicious.org/">Mojolicious</a>というWebフレームワークがインストールされている場合に、再構築を自動化する機能を提供しています。
+</p>
+<p>
+  以下のコマンドで、ローカル環境で、Webサーバーを起動すると、ファイルの修正を検知して、Webサイトの再構築が自動的に行われます。
+</p>
+<pre>
+morbo serve.pl
+</pre>
+<p>
+  つまり、再構築コマンドを、手動で実行しなくても、サイト確認のために、Webサーバーをローカル環境で起動すれば、自動的に再構築が行われるのです。
+</p>
+<p>
+  再構築のひと手間や、再構築もれを意識する必要がありません。
+</p>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    メニュー
+  </div>
+  <ul>
+    <li><a href="/blog/20190416153053.html">Windowsで個人ブログを作る</a></li>
+    <li>Macで個人ブログを作る</li>
+    <li>Linuxで個人ブログを作る</li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a style="font-size:15px;text-decoration:none;" href="https://tutorial.perlzemi.com/">制作 Perlゼミ</a>
+
+      </div>
+    </div>
+  </body>
+</html>
