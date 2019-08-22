@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="/images/giblog-favicon.png">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+<title>Giblogは記事の検索・置換が簡単 - Giblog公式サイト - Gitで管理できるWebサイト・ブログの作成のツール</title>
+<meta name="description" content="Giblogは記事の検索・置換が簡単です。Giblogは、Webサイトの記事のデータをすべてファイルとして持っています。すべてがファイルなので、LinuxコマンドやPerlを使って、記事を簡単に検索・置換できます。">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@perlzemi" />
+<meta name="twitter:title" content="Giblogは記事の検索・置換が簡単 - Giblog公式サイト - Gitで管理できるWebサイト・ブログの作成のツール" />
+<meta name="twitter:description" content="Giblogは記事の検索・置換が簡単です。Giblogは、Webサイトの記事のデータをすべてファイルとして持っています。すべてがファイルなので、LinuxコマンドやPerlを使って、記事を簡単に検索・置換できます。" />
+
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<script>
+  $(document).ready(function () {
+    $(window).on('resize', function () {
+      var width = $(window).width();
+      
+      if (width > 860) {
+        $('.header-content-menu').show();
+      }
+    });
+  });
+</script>
+
+<div class="header-content">
+  <div class="header-content-title">
+    <a href="/"><img src="/images/giblog-logo-image-text.png" width="170" alt="Giblog公式サイト" style="vertical-align:-25px;"></a>
+  </div>
+  <div class="menu-button" onclick="$('.header-content-menu').toggle();">
+    <img src="/images/menu.png" style="width:40px;">
+  </div>
+  <ul class="header-content-menu">
+    <li><a href="/start.html">Giblogをはじめよう</a></li>
+    <li><a href="https://docjp.giblog.net/">公式ドキュメント</a></li>
+    <li><a href="https://giblog.slack.com">フォーラム</a>
+    <li><a href="https://github.com/yuki-kimoto/giblog">リポジトリ</a></li>
+    <!-- テーマ -->
+    <!-- 更新情報 -->
+    <li><a class="otoiawase" href="/mail.html">お問い合わせ</a></li>
+  </ul>
+</div>
+
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <h2><a href="/blog/20190823074644.html">Giblogは記事の検索・置換が簡単</a></h2>
+<p>
+  Giblogは記事の検索・置換が簡単です。Giblogは、Webサイトの記事のデータをすべてファイルとして持っています。すべてがファイルなので、LinuxコマンドやPerlを使って、記事を簡単に検索・置換できます。
+</p>
+<p>
+  「あー、ブログ記事のこの言葉を一括置換したいのにー」そんなときは、たまにありませんか。Giblogは、LinuxコマンドとPerlを使って、簡単に実現できます。
+</p>
+<h3>記事を検索してみよう - grepコマンド</h3>
+<p>
+  記事を検索するには、grepコマンドが使えますよ。grepコマンドというのは、ファイルの中に、特定の文字列が含まれていることを調べることができるLinuxのコマンドです。ディレクトリの中にあるファイルすべてを対象にする場合は「-r」オプションを使用します。
+</p>
+<pre>
+grep -r 文字列 対象ディレクトリ
+</pre>
+<p>
+  grepコマンドを使って、「templates」ディレクトリの下にある、記事の中にある「ステーキ」という言葉を探してみましょう。
+</p>
+<pre>
+grep -r "ステーキ" templates
+</pre>
+<p>
+  以下のように「ステーキ」が含まれている行が、ファイル名と一緒に画面に出力されます。
+</p>
+<pre>
+templates/blog/20190821075954.html:動的なステーキに、プラグインなどのユーザープログラムを追加した場合は、プラグインを追加するたびに、ステーキが遅くなります。
+templates/blog/20190814071930.html:さらに、自分でステーキを作って、ドメインを取得して、アウトプットしている人は、さらに少ないです。
+templates/blog/20190814071930.html:Giblogでステーキを作ると、少なくとも、自分でステーキを作れる人なんだということが、わかります。
+templates/index.html:    レンタルサーバーなしで、本格的なステーキ制作を、Window, macOS, Linuxのパソコン上でお試しいただけます。環境のセッティングは、手順を進めるだけ。
+templates/start.html:  &lt;li&gt;&lt;a href="/blog/20190416153053.html"&gt;Windowsでステーキ作成の環境を構築する&lt;/a&gt;&lt;/li&gt;
+templates/start.html:&lt;h3&gt;ステーキのデザイン&lt;/h3&gt;
+templates/start.html:&lt;h3&gt;ステーキを改造する&lt;/h3&gt;
+</pre>
+<p>
+  初めてgrepを使った方は、びっくりしたのではないでしょうか。こんなに簡単に素早く検索ができるんですね。
+</p>
+<h3>HTMLファイルとCSSだけに限定する</h3>
+<p>
+  検索結果には、画像ファイルなどの、すべての結果が含まれてしまいますから、HTMLファイルやCSSなどのテキストファイルだけを抜き出したいですね。
+</p>
+<p>
+  そういう場合は、検索結果からさらにHTMLファイルを絞り込むことができます。Linuxコマンドのパイプ、grep、Perlの正規表現をうまく組み合わせます。
+</p>
+<pre>
+# ステーキを含んでいるHTMLファイルとCSSファイルだけに絞りこむ
+grep -r "ステーキ" templates | grep -P "(\.html|\.css)"
+</pre>
+<p>
+  こう書くと、ステーキを含んでいるHTMLファイルとCSSファイルだけに絞りこむことができるんです。
+</p>
+<p>
+  理解を深めたい方は、Linuxコマンド、grep、Perlの正規表現で検索してみてください。
+</p>
+<h3>Perlを使って置換する</h3>
+<p>
+  記事の中のこの単語をを置換したいという場合がありますよね。こういう場合も、LinuxコマンドとPerlをうまく組み合わせればいけるんです。
+</p>
+<p>
+  ステーキを寿司に置換してみましょう。
+</p>
+<p>
+  先ほどのコマンドを少し修正します。なぜこれでいけるのかということは、別の場所で解説しますね。まず置換が、こんなに簡単にできるんだーということを知ってもらえたらと思います。
+</p>
+<pre>
+grep -rl "ステーキ" templates | grep -P "(\.html|\.css)" | uniq | xargs perl -pi -e "s/ステーキ/寿司/"
+</pre>
+<p>
+  上記コマンドを実行するとあら不思議、記事のすべての「ステーキ」が「寿司」に変換されます。
+</p>
+<h3>置換で間違った場合に元に戻したい</h3>
+<p>
+  間違って置換してしまう場合もありますよね。そういう場合は「git reset --hard」を使うことで変更を完全に元の状態に戻すことができます。
+</p>
+<pre>
+git reset --hard
+</pre>
+<p>
+  詳しく知りたい場合は、gitコマンドについて検索してみてください。
+</p>
+<h3>検索・置換・元に戻すが簡単にできる</h3>
+<p>
+  GiblogとLinuxコマンドとPerlとGitを使うと、検索・置換・元に戻すが非常に簡単にできます。
+</p>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    メニュー
+  </div>
+  <ul>
+    <li><a href="/blog/20190416153053.html">Windowsで個人ブログを作る</a></li>
+    <li>Macで個人ブログを作る</li>
+    <li>Linuxで個人ブログを作る</li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a style="font-size:15px;text-decoration:none;" href="https://tutorial.perlzemi.com/">制作 Perlゼミ</a>
+
+      </div>
+    </div>
+  </body>
+</html>
