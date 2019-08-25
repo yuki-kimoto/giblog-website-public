@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="/images/giblog-favicon.png">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+<title>GiblogはWindows、Mac OS、Linuxに対応 - Giblog公式サイト - Gitで管理できるWebサイト・ブログの作成のツール</title>
+<meta name="description" content="GiblogはWindows、Mac OS、Linuxに対応しています。Windows、Mac OSでのローカルPCでの開発、Debian, Ubuntu, CentOS, RedHatなどのLinuxにおけるリモートサーバーでの開発もサポートしています。">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@perlzemi" />
+<meta name="twitter:title" content="GiblogはWindows、Mac OS、Linuxに対応 - Giblog公式サイト - Gitで管理できるWebサイト・ブログの作成のツール" />
+<meta name="twitter:description" content="GiblogはWindows、Mac OS、Linuxに対応しています。Windows、Mac OSでのローカルPCでの開発、Debian, Ubuntu, CentOS, RedHatなどのLinuxにおけるリモートサーバーでの開発もサポートしています。" />
+
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<script>
+  $(document).ready(function () {
+    $(window).on('resize', function () {
+      var width = $(window).width();
+      
+      if (width > 860) {
+        $('.header-content-menu').show();
+      }
+    });
+  });
+</script>
+
+<div class="header-content">
+  <div class="header-content-title">
+    <a href="/"><img src="/images/giblog-logo-image-text.png" width="170" alt="Giblog公式サイト" style="vertical-align:-25px;"></a>
+  </div>
+  <div class="menu-button" onclick="$('.header-content-menu').toggle();">
+    <img src="/images/menu.png" style="width:40px;">
+  </div>
+  <ul class="header-content-menu">
+    <li><a href="/start.html">Giblogをはじめよう</a></li>
+    <li><a href="https://docjp.giblog.net/">公式ドキュメント</a></li>
+    <li><a href="https://giblog.slack.com">フォーラム</a>
+    <li><a href="https://github.com/yuki-kimoto/giblog">リポジトリ</a></li>
+    <!-- テーマ -->
+    <!-- 更新情報 -->
+    <li><a class="otoiawase" href="/mail.html">お問い合わせ</a></li>
+  </ul>
+</div>
+
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <h2><a href="/blog/20190826074335.html">GiblogはWindows、Mac OS、Linuxに対応</a></h2>
+<p>
+  GiblogはWindows、Mac OS、Linuxに対応しています。Windows、Mac OSでのローカルPCでの開発、Debian, Ubuntu, CentOS, RedHatなどのLinuxにおけるリモートサーバーでの開発もサポートしています。
+</p>
+<h3>Windowsのサポート</h3>
+<p>
+  Windowsでは、疑似的なLinux環境を再現するmsys2というツールを、インストールすることで、Giblogを利用することができます。
+</p>
+<p>
+  以下でインストール方法とGiblogの使い方を解説しています。
+</p>
+<p>
+  <a href="/blog/20190416153053.html">WindowsでWebサイト作成の環境を作る</a>
+</p>
+<h3>Mac OSのサポート</h3>
+<p>
+  Mac OSには、Perlがデフォルトインストールされているので、そのまま使い始めることができます。HTMLファイルの自動再構築のために必要となるMojoliciousのインストールも合わせて行っておきましょう。
+</p>
+<pre>
+cpanm Mojolicious
+</pre>
+<p>
+  最近のMac OSでは、バージョンによって、Perlのモジュールのインストールが、正しくできないという不具合があったり、将来的には、Perlを含むスクリプト言語を、デフォルトで提供しないという方針が進められているということも聞きます。
+</p>
+<p>
+  確実にインストールを成功させたい場合は、ローカル環境に構築したPerlを使いましょう。perlbrewやplenvというローカル環境にPerlを構築するツールを利用します。
+</p>
+<ul>
+  <li><a href="https://tutorial.perlzemi.com/blog/20110220130464.html">perlbrew - ユーザー環境にPerlをインストールする</a></li>
+  <li><a href="https://tutorial.perlzemi.com/blog/20180816153437.html">plenv - ユーザー環境にPerlをインストールする</a></li>
+</ul>
+<p>
+  どちらも似ているツールなので、お好みで選んでください。
+</p>
+<p>
+  この後に以下のコマンドを実行してGiblogをインストールしてください。HTMLファイルの自動再構築のために必要となるMojoliciousのインストールも合わせて行っておきましょう。
+</p>
+<pre>
+cpanm Giblog
+cpanm Mojolicious
+</pre>
+<h3>Linuxのサポート</h3>
+<p>
+  Debian, Ubuntu, CentOS, RedHatなどのLinuxサーバーにSSHで接続して、リモート環境で、開発を行うこともできます。
+</p>
+<p>
+  リモート環境で開発する場合は、ユーザー環境で開発したいという場合が、多いと思います。
+</p>
+<p>
+  そういう場合は、ローカル環境に構築したPerlを使いましょう。perlbrewやplenvというローカル環境にPerlを構築するツールを利用すると、大丈夫です。
+</p>
+<ul>
+  <li><a href="https://tutorial.perlzemi.com/blog/20110220130464.html">perlbrew - ユーザー環境にPerlをインストールする</a></li>
+  <li><a href="https://tutorial.perlzemi.com/blog/20180816153437.html">plenv - ユーザー環境にPerlをインストールする</a></li>
+</ul>
+<p>
+  どちらも似ているツールなので、お好みで選んでください。
+</p>
+<p>
+  この後に以下のコマンドを実行してGiblogをインストールしてください。HTMLファイルの自動再構築のために必要となるMojoliciousのインストールも合わせて行っておきましょう。
+</p>
+<pre>
+cpanm Giblog
+cpanm Mojolicious
+</pre>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    メニュー
+  </div>
+  <ul>
+    <li><a href="/blog/20190416153053.html">Windowsで個人ブログを作る</a></li>
+    <li>Macで個人ブログを作る</li>
+    <li>Linuxで個人ブログを作る</li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a style="font-size:15px;text-decoration:none;" href="https://tutorial.perlzemi.com/">制作 Perlゼミ</a>
+
+      </div>
+    </div>
+  </body>
+</html>
