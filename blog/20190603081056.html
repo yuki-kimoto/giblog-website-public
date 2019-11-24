@@ -193,7 +193,7 @@ unless (length $name) {
 my $email = $q-&gt;param('email');
 $email = decode('UTF-8', $email);
 
-unless (length $email && $email =~ /\@/) {
+unless (length $email &amp;&amp; $email =~ /\@/) {
   push @errors, "Eメールアドレスを正しく入力してください。";
 }
 
