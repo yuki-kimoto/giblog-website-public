@@ -8,12 +8,12 @@
 <link rel="stylesheet" type="text/css" href="/css/common.css">
 <script src="/js/jquery-3.4.1.min.js"></script>
 
-<title>フッタを編集する - Giblog公式サイト - Gitで管理できるWebサイト・ブログの作成のツール</title>
-<meta name="description" content="フッタを編集してみましょう。フッタというのは、Webサイトの一番下の部分のことです。">
+<title>Giblog 2.0 リリース - Giblog公式サイト - Gitで管理できるWebサイト・ブログの作成のツール</title>
+<meta name="description" content="Giblog 2.0がリリースされました。">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@perlzemi" />
-<meta name="twitter:title" content="フッタを編集する - Giblog公式サイト - Gitで管理できるWebサイト・ブログの作成のツール" />
-<meta name="twitter:description" content="フッタを編集してみましょう。フッタというのは、Webサイトの一番下の部分のことです。" />
+<meta name="twitter:title" content="Giblog 2.0 リリース - Giblog公式サイト - Gitで管理できるWebサイト・ブログの作成のツール" />
+<meta name="twitter:description" content="Giblog 2.0がリリースされました。" />
 <meta name="twitter:image" content="https://jp.giblog.net/images/giblog-favicon.png" />
 
 
@@ -57,31 +57,62 @@
 
   </div>
   <div class="middle">
-    <h2><a href="/blog/20190418064810.html">フッタを編集する</a></h2>
+    <h2><a href="/blog/20210716130801.html">Giblog 2.0 リリース</a></h2>
 <p>
-  フッタを編集してみましょう。フッタというのは、Webサイトの一番下の部分のことです。
+  Giblog 2.0がリリースされました。
 </p>
+<h3>serveコマンドの追加</h3>
 <p>
-  コピーライトや、会社名や、補助的な情報などが表示される場所です。
-</p>
-<p>
-  フッタは、以下のファイルの中に書かれています。
+  serveコマンドが追加されました。Webサイトをサーブします。
 </p>
 <pre>
-templates/common/footer.html
+giblog serve
 </pre>
 <p>
-  このファイルを開いてみましょう。
-</p>
-<p>
-  Giblogで作成されたWebサイトのフッタは以下のようになっています。
+  これは以下のコマンドのエイリアスです。
 </p>
 <pre>
-&lt;!-- footer --&gt;
-&lt;a href="https://tutorial.perlzemi.com/"&gt;制作 Perlゼミ&lt;/a&gt;
+morbo -w giblog.conf -w lib -w templates serve.pl
+</pre>
+<h3>publishコマンドの追加</h3>
+<p>
+  publishコマンドが追加されました。Webサイトを公開します。
+</p>
+<pre>
+giblog publish origin main
 </pre>
 <p>
-  フッタを編集したい場合は、この部分を変更してみましょう。
+  これは、以下のコマンドのエイリアスです。「YY-mm-dd HH:MM:SS」は現在時刻です。
+</p>
+<pre>
+git -C public add --all
+git -C public commit -m "Published by Giblog at YY-mm-dd HH:MM:SS"
+git -C public push origin main
+</pre>
+<h3>サイトを新しく作成した場合はGitで初期化</h3>
+<p>
+  「giblog new」「giblog new_website」「giblog  new_blog」で生成したWebサイトは、そのディレクトリとそのディレクトリのpublicディレクトリがgitで初期化されるようになりました。
+</p>
+<pre>
+git --init mysite
+git --init mysite/public
+</pre>
+<h3>サイトのデザインの改善</h3>
+<p>
+  「giblog new」「giblog new_website」「giblog  new_blog」で生成したWebサイトのデザインを微調整しました。
+</p>
+<h3>更新された公開ファイルだけを出力</h3>
+<p>
+  更新された公開ファイルだけが出力されるようになりました。内容が同じだった場合は、タイムスタンプが更新されません。
+</p>
+<h3>互換性のない変更</h3>
+<h4>Mojolicious 9.19+への依存</h4>
+<p>
+  Mojolicious 9.19以上への依存となりました。このためPerl 5.16+が必要になります。
+</p>
+<h4>Git 1.8.5+への依存
+<p>
+  Git 1.8.5+への依存となりました。
 </p>
 
   </div>
